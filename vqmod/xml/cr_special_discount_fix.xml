@@ -1,0 +1,13 @@
+<modification>
+        <id>Use the lowest price when there is both a special and a discount price</id>
+        <version>1.0.0</version>
+        <vqmver>2.X</vqmver>
+        <author>Chris Rollins</author>
+		
+		<file name="system/library/cart.php">
+			<operation>
+				<search position="replace"><![CDATA[$price = $product_special_query->row['price'];]]></search>
+				<add><![CDATA[$price = min($price, $product_special_query->row['price']);]]></add>
+			</operation>
+		</file>
+</modification>
